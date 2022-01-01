@@ -6,8 +6,8 @@
             <meta name="theme-color" content="#000000">
             <link rel="manifest" href="/manifest.webmanifest">
             <link rel="shortcut icon" href="/favicon.3c87263f.png">
-            <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
-            <link rel="stylesheet" href="/src.23260492.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
+            <!--link rel="stylesheet" href="/src.23260492.css">
             <link rel="stylesheet" href="/app.646a338c.css"-->
             <script src="https://cdn.tailwindcss.com"></script>
             <script>
@@ -15,16 +15,23 @@
                   theme: {
                     extend: {
                       colors: {
-                        clifford: '#da373d',
+                        hds: '#002bbb',
                       }
                     }
                   }
                 }
               </script>
+              <style type="text/tailwindcss">
+                @layer utilities {
+                  .content-auto {
+                    content-visibility: auto;
+                  }
+                }
+              </style>
             <title>Yes HDS</title>
         </head>
         <body>
-            <div class="ais-InstantSearch"> <h1 class="text-3xl font-bold underline text-clifford">Yes HDS</h1> 
+            <div class="ais-InstantSearch"> <h1 class="text-3xl font-bold underline text-hds">Yes HDS</h1> 
                 <div class="left-panel"> 
                     <div id="clear-refinements"></div> 
                     <h2>States</h2> 
