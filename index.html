@@ -60,6 +60,32 @@
 -->
 <div class="bg-white">
     <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
+        <div class="ais-InstantSearch">
+            <!--div class="left-panel"> 
+                <div id="clear-refinements"></div> 
+                <h2>States</h2> 
+                <div id="filters"></div> 
+            </div> 
+            <div class="right-panel">
+                <h1 class="text-7xl font-bold text-hds mb-10">🚚 Is it HDS?</h1> 
+                <div id="searchbox" class="ais-SearchBox shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-lg border-gray-300 rounded-md"></div>
+                <span class="ais-Stats-text"></span>
+                <div id="hits"></div>
+                <div id="pagination"></div> 
+            </div--> 
+            <div class="">
+                <h1 class="text-7xl text-center font-bold text-hds mb-10"><a href="/?">🚚 Is it HDS?</a></h1> 
+                <div id="searchbox" class="ais-SearchBox shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-lg border-gray-300 rounded-md"></div>
+                <div class=""> 
+                    <div id="stats" class="ais-Stats-text"></div>
+                    <h2>Filter by State</h2> 
+                    <div id="filters"></div> 
+                    <div id="clear-refinements"></div> 
+                </div> 
+                <div id="hits"></div>
+                <div id="pagination"></div> 
+            </div> 
+        </div> 
       <div class="lg:w-0 lg:flex-1">
         <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
           Is it HDS?
@@ -85,102 +111,11 @@
           </a>
         </p>
       </div>
-      <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<div>
-    <div class="sm:hidden">
-      <label for="tabs" class="sr-only">Select a tab</label>
-      <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-      <select id="tabs" name="tabs" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-        <option>Applied</option>
-  
-        <option>Phone Screening</option>
-  
-        <option selected>Interview</option>
-  
-        <option>Offer</option>
-  
-        <option>Disqualified</option>
-      </select>
-    </div>
-    <div class="hidden sm:block">
-      <div class="border-b border-gray-200">
-        <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-          <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200" -->
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm">
-            Applied
-  
-            <!-- Current: "bg-indigo-100 text-indigo-600", Default: "bg-gray-100 text-gray-900" -->
-            <span class="bg-gray-100 text-gray-900 hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">52</span>
-          </a>
-  
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm">
-            Phone Screening
-  
-            <span class="bg-gray-100 text-gray-900 hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">6</span>
-          </a>
-  
-          <a href="#" class="border-indigo-500 text-indigo-600 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm" aria-current="page">
-            Interview
-  
-            <span class="bg-indigo-100 text-indigo-600 hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">4</span>
-          </a>
-  
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm">
-            Offer
-          </a>
-  
-          <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm">
-            Disqualified
-          </a>
-        </nav>
-      </div>
+      
     </div>
   </div>
   
-    </div>
-  </div>
-  
-            <div class="ais-InstantSearch">
-                <!--div class="left-panel"> 
-                    <div id="clear-refinements"></div> 
-                    <h2>States</h2> 
-                    <div id="filters"></div> 
-                </div> 
-                <div class="right-panel">
-                    <h1 class="text-7xl font-bold text-hds mb-10">🚚 Is it HDS?</h1> 
-                    <div id="searchbox" class="ais-SearchBox shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-lg border-gray-300 rounded-md"></div>
-                    <span class="ais-Stats-text"></span>
-                    <div id="hits"></div>
-                    <div id="pagination"></div> 
-                </div--> 
-                <div class="">
-                    <h1 class="text-7xl text-center font-bold text-hds mb-10"><a href="/?">🚚 Is it HDS?</a></h1> 
-                    <div id="searchbox" class="ais-SearchBox shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-lg border-gray-300 rounded-md"></div>
-                    <div class=""> 
-                        <div id="stats" class="ais-Stats-text"></div>
-                        <h2>Filter by State</h2> 
-                        <div id="filters"></div> 
-                        <div id="clear-refinements"></div> 
-                    </div> 
-                    <div id="hits"></div>
-                    <div id="pagination"></div> 
-                </div> 
-            </div> 
+            
             <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
 
