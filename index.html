@@ -9,19 +9,21 @@
             <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"-->
             <!--link rel="stylesheet" href="/src.23260492.css"-->
             <!--link rel="stylesheet" href="/app.646a338c.css"-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Permanent+Marker&display=swap" rel="stylesheet">
+
             <style>
-                li.ais-Hits-item {
-                    margin-bottom: 0;
-                    width: calc(100%);
-                    margin-top: 1rem;
-                    margin-left: 1rem;
-                    padding: 0;
-                    border: 0;
-                    box-shadow: none;
+                body, .header, .dosis {
+                    font-family: 'Dosis', sans-serif;
                 }
-                ais-SearchBox-input {
-                    max-width: ;
+                .marker { font-family: 'Permanent Marker', cursive;}
+                
+                .ais-SearchBox-input {
+                    max-width: 43rem;
+                    text-align: center;
                 }
+
             </style>
             <script src="https://cdn.tailwindcss.com"></script>
             <script>
@@ -36,10 +38,19 @@
                 }
               </script>
               <style type="text/tailwindcss">
-                @layer utilities {
-                  .content-auto {
-                    content-visibility: auto;
-                  }
+                @layer base {
+                    mark { 
+                        @apply bg-yellow-400;
+                    }
+                    input {
+                        @apply rounded-lg capitalize text-hds;
+                    }
+                    li.ais-RefinementList-item {
+                        @apply inline-block space-x-4 divide-x;
+                    }
+                    li.ais-Hits-item  {
+                        @apply space-y-2 divide-x;
+                    }
                 }
               </style>
             <title>Yes HDS</title>
@@ -70,31 +81,38 @@
   <body class="h-full">
   ```
 -->
-<div class="flex flex-row justify-center text-9xl py-16">
-    <div class="basis-1/4">Is</div>
-    <div class="basis-1/2">It</div>
-    <div class="basis-1/4">HDS?</div>
-  </div>
 
-<div class="bg-white min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
-    
-    <div class="max-w-max mx-auto text-left">
-        <div class="flex text-9xl">
-            <div class="flex-none w-14 h-40 ...">
-              Is
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="header fixed inset-x-0 top-0 text-2xl sm:text-8xl">
+
+    <div class="bg-hds max-w-8xl mx-auto py-8 sm:py-16 px-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-center flex-wrap text-white">
+            <div>Is</div>
+            <div class="searchWidget widget text-black px-1 sm:px-5">
+                <div class="searchWidgetPreview">
+                    <div class="ais-SearchBox-wrapper" id="search-wrapper">
+                        <div class="ais-SearchBox rounded-lg sm:text-8xl" id="search-box"></div>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 text-center w-full flex flex-col"></div>
             </div>
-            <div class="grow h-40">
-                <div id="searchbox" class="focus:ring-indigo-500 focus:border-indigo-500"></div>
-            </div>
-            <div class="flex-none w-14 h-40">
-              HDS
-            </div>
+            <div>HDS? 🚚</div>
+            <!--div id="yesno" class="flex p-2 marker text-7xl sm:text-9xl text-yellow-400"></div-->
         </div>
+
+        <!--div class="flex items-center justify-start flex-wrap">
+            <div class="text-yellow-400 max-w-8xl mx-auto mt-8">
+                <div id="filter" class="text-2xl"></div> 
+                <div id="clear-refinements"></div> 
+            </div>
+        </div-->
     </div>
   </div>
   
-<div class="bg-white">
-    <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
+
+  
+<div class="mt-64 max-w-8xl mx-auto py-8 sm:py-16 px-3 sm:px-6 lg:px-8">
+    <div class="max-6xl mx-auto">
         <div class="ais-InstantSearch">
             <!--div class="left-panel"> 
                 <div id="clear-refinements"></div> 
@@ -108,15 +126,13 @@
                 <div id="hits"></div>
                 <div id="pagination"></div> 
             </div--> 
-            <div class="">
-                <div class=""> 
-                    <div id="stats" class="ais-Stats-text"></div>
-                    <h2>Filter by State</h2> 
-                    <div id="filters"></div> 
-                    <div id="clear-refinements"></div> 
-                </div> 
+  
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div id="stats-container" class="ais-Stats-text text-7xl text-hds mb-6 marker"></div>
+                <div class="text-2xl text-gray-300 mb-6 dosis"><span class="text-hds">*</span> Results not right? Try suburb + state for fine-tuned results (Example: "Kingston Tas"). Note that border-towns can be zoned interstate, and HDS does not service every suburb/postcode in Australia.</div>
+                <!--h2>Filter by State</h2-->                
                 <div id="hits"></div>
-                <div id="pagination"></div> 
+                <!--div id="pagination"></div--> 
             </div> 
         </div> 
     </div>
@@ -129,6 +145,7 @@
             <!--script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script> 
             <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script--> 
 
-            <script src="/app.066b175f.js"></script> 
+            <!--script src="/app.066b175f.js"></script--> 
+            <script src="/instantsearch.js"></script> 
         </body>
     </html>
