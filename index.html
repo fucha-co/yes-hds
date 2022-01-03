@@ -85,13 +85,16 @@
         
         <div class="flex items-center justify-center flex-wrap">
             <div>Is</div>
-            <div class="searchWidget widget px-1 sm:px-5">
-                <div class="searchWidgetPreview">
-                    <div class="ais-SearchBox-wrapper" id="search-wrapper">
-                        <div class="ais-SearchBox rounded-lg sm:text-8xl" id="search-box"></div>
+            <div class="flex flex-col text-center">
+                <div class="searchWidget widget px-1 sm:px-5">
+                    <div class="searchWidgetPreview">
+                        <div class="ais-SearchBox-wrapper" id="search-wrapper">
+                            <div class="ais-SearchBox rounded-lg sm:text-8xl" id="search-box"></div>
+                        </div>
                     </div>
+                    <div class="absolute bottom-0 text-center w-full flex flex-col"></div>
                 </div>
-                <div class="absolute bottom-0 text-center w-full flex flex-col"></div>
+                <div class="mt-3 text-xl text-gray-400">Type any postcode, suburb, or postcode <em>plus</em> suburb </div>
             </div>
             <div>HDS? 🚚</div>
             <!--div id="yesno" class="flex p-2 marker text-7xl sm:text-9xl text-yellow-400"></div-->
@@ -112,7 +115,7 @@
   
 
   
-<div class="mt-64 max-w-8xl mx-auto py-8 px-3 sm:px-6 lg:px-8">
+<div class="mt-72 max-w-8xl mx-auto py-8 px-3 sm:px-6 lg:px-8">
     <div class="max-6xl mx-auto">
         <div class="ais-InstantSearch">
             <!--div class="left-panel"> 
@@ -129,11 +132,9 @@
             </div--> 
   
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-                
-                <div class="text-2xl text-gray-300 mb-6 dosis"><span class="text-gray-500">Tip - </span> Enter postcode or suburb or suburb plus state (fine-tune results; ex: "Kingston Tas"). <span class="text-gray-500">Tip -</span> Use the minus-sign/hyphen to exlude any word/postcode from results (ex: "Melbourne -3000" will show all Melbourne results excluding postcode 3000 results). <span class="text-gray-500">Note -</span> Border towns can be zoned interstate. <span class="text-gray-500">Note -</span> HDS does not service every suburb/postcode in Australia.</div>
-                <!--h2>Filter by State</h2-->                
+                <!--div class="text-2xl text-gray-300 mb-6 dosis"><span class="text-gray-500">Tip - </span> Enter postcode or suburb or suburb plus state (fine-tune results; ex: "Kingston Tas"). <span class="text-gray-500">Tip -</span> Use the minus-sign/hyphen to exlude any word/postcode from results (ex: "Melbourne -3000" will show all Melbourne results excluding postcode 3000 results). <span class="text-gray-500">Note -</span> Border towns can be zoned interstate. <span class="text-gray-500">Note -</span> HDS does not service every suburb/postcode in Australia.</div-->
                 <div id="hits" class="text-black"></div>
-                <!--div id="pagination"></div--> 
+                <!--div id="pagination"></div-->
             </div> 
         </div> 
     </div>
