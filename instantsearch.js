@@ -3,7 +3,19 @@ let apiKey = "c4920017f671d06dd4796aaa89d05112";
 
 const search = instantsearch({
   indexName: "hds_zones",
-  searchClient: algoliasearch(appID, apiKey)
+  searchClient: algoliasearch(appID, apiKey),
+  searchFunction: function(helper) {
+    var searchResults = $('#hits');
+    var yesNoBar = $('#stats-container');
+    if (helper.state.query === '') {
+      searchResults.hide();
+      yesNoBar.hide();
+      return;
+    }
+    helper.search();
+    searchResults.show();
+    yesNoBar.show();
+  }
 });
 
 search.addWidget(
@@ -27,11 +39,11 @@ search.addWidget(
                     <span class="hit-suburb capitalize">{{{_highlightResult.Suburb.value}}}</span>,
                     <span class="hit-state">{{{_highlightResult.Delivery_State.value}}}</span>,
                     <span class="hit-postcode font-bold">{{{_highlightResult.Postcode.value}}}</span>&nbsp;&nbsp;&nbsp;
-                    <span class="hit-zone-name">({{{_highlightResult.Zone Name.value}}},</span>
-                    <span class="hit-zone-code">{{{_highlightResult.Zone Code.value}}})</span>&nbsp;&nbsp;&nbsp;
+                    <span class="hit-zone-name">( {{{_highlightResult.Zone Name.value}}},</span>
+                    <span class="hit-zone-code">{{{_highlightResult.Zone Code.value}}} )</span>&nbsp;&nbsp;&nbsp;
                     <span class="hit-day">🚚 {{{_highlightResult.Day Of Week.value}}}</span>
                     <span class="hit-start">{{{_highlightResult.DefaultStart.value}}}</span>-
-                    <span class="hit-finish">{{{_highlightResult.DefaultFinish.value}}}</span>
+                    <span class="hit-finish">{{{_highlightResult.DefaultFinish.value}}} 🕓</span>
                 </div>
             </div>`
     }
@@ -67,9 +79,9 @@ search.addWidget(
         sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
       {{/areHitsSorted}}
       {{^areHitsSorted}}
-        {{#hasNoResults}}HDS <span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">doesn't deliver</span> to "<span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">{{query}}</span>"{{/hasNoResults}}
-        {{#hasOneResult}}<span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">Yes!</span> HDS services "<span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">{{query}}</span>" with <span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">1 Delivery Window</span> each week{{/hasOneResult}}
-        {{#hasManyResults}}<span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">Yes!</span> HDS services "<span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">{{query}}</span>" with <span class="underline decoration-wavy decoration-yellow-400 decoration-8 underline-offset-1">{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }}&nbsp;Delivery Windows</span> each week{{/hasManyResults}}
+        {{#hasNoResults}}HDS <span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">doesn't deliver</span> to "<span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">{{query}}</span>"{{/hasNoResults}}
+        {{#hasOneResult}}<span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">Yes! </span> HDS services "<span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">{{query}}</span>" with <span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">1 Delivery Window</span> each week{{/hasOneResult}}
+        {{#hasManyResults}}<mark class="px-3">Yes! HDS services "{{query}}" {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }} times per week .</mark>{{/hasManyResults}}
       {{/areHitsSorted}}
         `,
     },

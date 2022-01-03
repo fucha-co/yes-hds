@@ -18,11 +18,6 @@
                     font-family: 'Dosis', sans-serif;
                 }
                 .marker { font-family: 'Permanent Marker', cursive;}
-                
-                .ais-SearchBox-input {
-                    max-width: 43rem;
-                    text-align: center;
-                }
 
             </style>
             <script src="https://cdn.tailwindcss.com"></script>
@@ -42,8 +37,8 @@
                     mark { 
                         @apply bg-yellow-400;
                     }
-                    input {
-                        @apply rounded-lg capitalize text-hds;
+                    input.ais-SearchBox-input {
+                        @apply capitalize text-hds max-w-2xl px-4 text-center border-b-4 border-hds focus:border-t-0 focus:border-x-0;
                     }
                     li.ais-RefinementList-item {
                         @apply inline-block space-x-4 divide-x;
@@ -54,8 +49,9 @@
                 }
               </style>
             <title>Yes HDS</title>
+            
         </head>
-        <body class="">
+        <body class="bg-white">
             <!--
   This example requires Tailwind CSS v2.0+ 
   
@@ -83,12 +79,13 @@
 -->
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="header fixed inset-x-0 top-0 text-2xl sm:text-8xl">
+<div class="header bg-white fixed inset-x-0 top-0 text-2xl sm:text-8xl">
 
-    <div class="bg-hds max-w-8xl mx-auto py-8 sm:py-16 px-3 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-center flex-wrap text-white">
+    <div class="text-hds max-w-8xl mx-auto py-8 sm:py-8 px-3 sm:px-6 lg:px-8">
+        
+        <div class="flex items-center justify-center flex-wrap">
             <div>Is</div>
-            <div class="searchWidget widget text-black px-1 sm:px-5">
+            <div class="searchWidget widget px-1 sm:px-5">
                 <div class="searchWidgetPreview">
                     <div class="ais-SearchBox-wrapper" id="search-wrapper">
                         <div class="ais-SearchBox rounded-lg sm:text-8xl" id="search-box"></div>
@@ -98,6 +95,10 @@
             </div>
             <div>HDS? 🚚</div>
             <!--div id="yesno" class="flex p-2 marker text-7xl sm:text-9xl text-yellow-400"></div-->
+        </div>
+
+        <div class="flex items-center justify-center flex-wrap">
+            <div id="stats-container" class="ais-Stats-text max-w-6xl text-4xl leading-tight text-hds mt-6 marker"></div>
         </div>
 
         <!--div class="flex items-center justify-start flex-wrap">
@@ -111,7 +112,7 @@
   
 
   
-<div class="mt-64 max-w-8xl mx-auto py-8 sm:py-16 px-3 sm:px-6 lg:px-8">
+<div class="mt-64 max-w-8xl mx-auto py-8 px-3 sm:px-6 lg:px-8">
     <div class="max-6xl mx-auto">
         <div class="ais-InstantSearch">
             <!--div class="left-panel"> 
@@ -128,10 +129,10 @@
             </div--> 
   
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-                <div id="stats-container" class="ais-Stats-text text-7xl text-hds mb-6 marker"></div>
-                <div class="text-2xl text-gray-300 mb-6 dosis"><span class="text-hds">*</span> Results not right? Try suburb + state for fine-tuned results (Example: "Kingston Tas"). Note that border-towns can be zoned interstate, and HDS does not service every suburb/postcode in Australia.</div>
+                
+                <div class="text-2xl text-gray-300 mb-6 dosis"><span class="text-gray-500">Tip - </span> Enter postcode or suburb or suburb plus state (fine-tune results; ex: "Kingston Tas"). <span class="text-gray-500">Tip -</span> Use the minus-sign/hyphen to exlude any word/postcode from results (ex: "Melbourne -3000" will show all Melbourne results excluding postcode 3000 results). <span class="text-gray-500">Note -</span> Border towns can be zoned interstate. <span class="text-gray-500">Note -</span> HDS does not service every suburb/postcode in Australia.</div>
                 <!--h2>Filter by State</h2-->                
-                <div id="hits"></div>
+                <div id="hits" class="text-black"></div>
                 <!--div id="pagination"></div--> 
             </div> 
         </div> 
@@ -146,6 +147,7 @@
             <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script--> 
 
             <!--script src="/app.066b175f.js"></script--> 
+            <script src="/jquery-3.6.0.min.js"></script> 
             <script src="/instantsearch.js"></script> 
         </body>
     </html>
