@@ -11,13 +11,13 @@
             <!--link rel="stylesheet" href="/app.646a338c.css"-->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Permanent+Marker&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;800&display=swap" rel="stylesheet">
 
             <style>
                 body, .header, .dosis {
                     font-family: 'Dosis', sans-serif;
                 }
-                .marker { font-family: 'Permanent Marker', cursive;}
+                .dosis { font-family: 'Dosis', sans-serif;}
 
             </style>
             <script src="https://cdn.tailwindcss.com"></script>
@@ -34,11 +34,17 @@
               </script>
               <style type="text/tailwindcss">
                 @layer base {
+                    body {
+                        @apply font-semibold;
+                    }
                     mark { 
-                        @apply bg-yellow-400;
+                        @apply bg-yellow-400 font-semibold;
                     }
                     input.ais-SearchBox-input {
-                        @apply capitalize text-hds max-w-2xl px-4 text-center border-b-4 border-hds focus:border-t-0 focus:border-x-0;
+                        @apply capitalize font-semibold text-hds max-w-2xl px-4 text-center border-b-4 border-hds focus:border-t-0 focus:border-x-0;
+                    }
+                    .ais-Stats-text mark {
+                        @apply text-hds;
                     }
                     li.ais-RefinementList-item {
                         @apply inline-block space-x-4 divide-x;
@@ -51,7 +57,7 @@
             <title>Yes HDS</title>
             
         </head>
-        <body class="bg-white">
+        <body class="bg-white border-hds">
             <!--
   This example requires Tailwind CSS v2.0+ 
   
@@ -79,7 +85,7 @@
 -->
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="header bg-white fixed inset-x-0 top-0 text-2xl sm:text-8xl">
+<div class="header dosis bg-white fixed inset-x-0 top-0 text-2xl sm:text-8xl">
 
     <div class="text-hds max-w-8xl mx-auto py-8 sm:py-8 px-3 sm:px-6 lg:px-8">
         
@@ -94,14 +100,14 @@
                     </div>
                     <div class="absolute bottom-0 text-center w-full flex flex-col"></div>
                 </div>
-                <div class="mt-3 text-xl text-gray-400">Type any postcode, suburb, or postcode <em>plus</em> suburb </div>
+                <div class="mt-3 text-xl text-gray-400">Type any Suburb, Postcode, or Suburb <em>plus</em> Postcode </div>
             </div>
             <div>HDS? 🚚</div>
             <!--div id="yesno" class="flex p-2 marker text-7xl sm:text-9xl text-yellow-400"></div-->
         </div>
 
         <div class="flex items-center justify-center flex-wrap">
-            <div id="stats-container" class="ais-Stats-text max-w-6xl text-4xl leading-tight text-hds mt-6 marker"></div>
+            <div id="stats-container" class="ais-Stats-text max-w-6xl text-5xl leading-tight mt-6"></div>
         </div>
 
         <!--div class="flex items-center justify-start flex-wrap">

@@ -70,6 +70,7 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.stats({
     container: "#stats-container",
+    delay: 5000,
     templates: {
         text: `
         {{#areHitsSorted}}
@@ -79,9 +80,9 @@ search.addWidget(
         sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
       {{/areHitsSorted}}
       {{^areHitsSorted}}
-        {{#hasNoResults}}HDS <span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">doesn't deliver</span> to "<span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">{{query}}</span>"{{/hasNoResults}}
-        {{#hasOneResult}}<span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">Yes! </span> HDS services "<span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">{{query}}</span>" with <span class="underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-1">1 Delivery Window</span> each week{{/hasOneResult}}
-        {{#hasManyResults}}<mark class="px-3">Yes! HDS services "{{query}}" {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }} times per week .</mark>{{/hasManyResults}}
+        {{#hasNoResults}}<mark class="p-3">No HDS doesn't service "{{query}}"</mark>{{/hasNoResults}}
+        {{#hasOneResult}}<mark class="p-3"><span class="font-extrabold">Yes!</span> HDS services <span class="capitalize font-extrabold">{{query}}</span> once per week</mark>{{/hasOneResult}}
+        {{#hasManyResults}}<mark class="p-3"><span class="font-extrabold">Yes!</span> HDS services <span class="capitalize font-extrabold">{{query}}</span> {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }} times per week</mark>{{/hasManyResults}}
       {{/areHitsSorted}}
         `,
     },
