@@ -67,27 +67,54 @@ search.addWidget(
   //})
 //);
 
+// yes! HDS services XXXx x times per week /* 
+// search.addWidget(
+//   instantsearch.widgets.stats({
+//     container: "#stats-container",
+//     delay: 5000,
+//     templates: {
+//         text: `
+//         {{#areHitsSorted}}
+//         {{#hasNoSortedResults}}No relevant results{{/hasNoSortedResults}}
+//         {{#hasOneSortedResults}}1 relevant result{{/hasOneSortedResults}}
+//         {{#hasManySortedResults}}{{#helpers.formatNumber}}{{nbSortedHits}}{{/helpers.formatNumber}} relevant results{{/hasManySortedResults}}
+//         sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
+//       {{/areHitsSorted}}
+//       {{^areHitsSorted}}
+//         {{#hasNoResults}}<mark class="p-3">No HDS doesn't service "{{query}}"</mark>{{/hasNoResults}}
+//         {{#hasOneResult}}<mark class="p-3"><span class="font-extrabold">Yes!</span> HDS services <span class="capitalize font-extrabold">{{query}}</span> once per week</mark>{{/hasOneResult}}
+//         {{#hasManyResults}}<mark class="p-3"><span class="font-extrabold">Yes!</span> HDS services <span class="capitalize font-extrabold">{{query}}</span> {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }} times per week</mark>{{/hasManyResults}}
+//       {{/areHitsSorted}}
+//         `,
+//     },
+//   })
+// ); */
+
+
+// ST ALi shortened version
+
 search.addWidget(
-  instantsearch.widgets.stats({
-    container: "#stats-container",
-    delay: 5000,
-    templates: {
-        text: `
-        {{#areHitsSorted}}
-        {{#hasNoSortedResults}}No relevant results{{/hasNoSortedResults}}
-        {{#hasOneSortedResults}}1 relevant result{{/hasOneSortedResults}}
-        {{#hasManySortedResults}}{{#helpers.formatNumber}}{{nbSortedHits}}{{/helpers.formatNumber}} relevant results{{/hasManySortedResults}}
-        sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
-      {{/areHitsSorted}}
-      {{^areHitsSorted}}
-        {{#hasNoResults}}<mark class="p-3">No HDS doesn't service "{{query}}"</mark>{{/hasNoResults}}
-        {{#hasOneResult}}<mark class="p-3"><span class="font-extrabold">Yes!</span> HDS services <span class="capitalize font-extrabold">{{query}}</span> once per week</mark>{{/hasOneResult}}
-        {{#hasManyResults}}<mark class="p-3"><span class="font-extrabold">Yes!</span> HDS services <span class="capitalize font-extrabold">{{query}}</span> {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }} times per week</mark>{{/hasManyResults}}
-      {{/areHitsSorted}}
-        `,
-    },
-  })
-);
+    instantsearch.widgets.stats({
+      container: "#stats-container",
+      delay: 5000,
+      templates: {
+          text: `
+          {{#areHitsSorted}}
+          {{#hasNoSortedResults}}No relevant results{{/hasNoSortedResults}}
+          {{#hasOneSortedResults}}1 relevant result{{/hasOneSortedResults}}
+          {{#hasManySortedResults}}{{#helpers.formatNumber}}{{nbSortedHits}}{{/helpers.formatNumber}} relevant results{{/hasManySortedResults}}
+          sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
+        {{/areHitsSorted}}
+        {{^areHitsSorted}}
+          {{#hasNoResults}}<mark class="p-3"><span class="font-extrabold">No! </span> <span class="capitalize ">{{query}}</span> <span class=""> is not HDS</span></mark>{{/hasNoResults}}
+          {{#hasOneResult}}<mark class="p-3"><span class="font-extrabold">Yes!</span> <span class="capitalize ">{{query}}</span> <span class=""> is HDS</span></mark>{{/hasOneResult}}
+          {{#hasManyResults}}<mark class="p-3"><span class="font-extrabold">Yes!</span> <span class="capitalize ">{{query}}</span> <span class=""> is HDS</span></mark><span class="block mt-5 text-black text-4xl">HDS service {{query}} {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber }} times per week</span>{{/hasManyResults}}
+        {{/areHitsSorted}}
+          `,
+      },
+    })
+  );
+
 
 /* search.addWidget(
     instantsearch.widgets.stats({
@@ -165,12 +192,12 @@ search.start();
 /***** ANIMATE MULTIPLE PLACEHOLDERs *****/
 
 const searchBar = document.querySelector(".ais-SearchBox-input");
-const DELAY_AFTER_ANIMATION = 1500;
+const DELAY_AFTER_ANIMATION = 2000;
 const PLACEHOLDERS = [
-  "Hobart", //1st animated placeholder 
-  "Brooklyn Vic", 
-  "2123", 
-  "6553"
+  "St Kilda", //1st animated placeholder 
+  "Sale", 
+  "3010", 
+  "Brooklyn", 
 ];
 
 const getRandomDelayBetween = (min, max) =>
@@ -198,7 +225,7 @@ const animateLetters = (
   setTimeout(() => {
     setPlaceholder(inputNode, currentLetters.join(""));
     animateLetters(currentLetters, remainingLetters, inputNode, onAnimationEnd);
-  }, getRandomDelayBetween(100, 180));
+  }, getRandomDelayBetween(50, 90));
 };
 
 const animatePlaceholder = (inputNode, placeholder, onAnimationEnd) => {
